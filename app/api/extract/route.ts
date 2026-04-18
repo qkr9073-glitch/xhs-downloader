@@ -53,9 +53,13 @@ export async function POST(req: Request) {
       );
     }
 
-    if (!/xiaohongshu\.com|xhslink\.com/.test(url)) {
+    const ALLOWED_HOSTS = /xiaohongshu\.com|xhslink\.com|xhs\.link|rednote\.com|xhsread\.com/i;
+    if (!ALLOWED_HOSTS.test(url)) {
       return Response.json(
-        { error: "샤오홍슈 링크가 아닙니다. (xiaohongshu.com 또는 xhslink.com)" },
+        {
+          error:
+            "샤오홍슈(RedNote) 링크가 아닙니다. 지원 도메인: xiaohongshu.com, rednote.com, xhslink.com, xhs.link",
+        },
         { status: 400 }
       );
     }
