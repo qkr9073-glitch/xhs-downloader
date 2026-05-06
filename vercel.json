@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "destination": "https://dlbunny.com/ko/xhs",
+      "permanent": false
+    }
+  ]
+}
